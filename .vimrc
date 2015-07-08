@@ -1,0 +1,10 @@
+set number
+syntax on
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+colorscheme desert
+set cursorline
