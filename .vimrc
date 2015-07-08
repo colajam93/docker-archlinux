@@ -6,5 +6,7 @@ set shiftwidth=4
 set softtabstop=4
 set autoindent
 set smartindent
-colorscheme desert
 set cursorline
+set laststatus=2
+set statusline=%F\ %r%m%h%w%=%y\ [%04l/%04L,\ %04v]
+colorscheme desert
