@@ -15,7 +15,8 @@ RUN echo -e '\ny\ny\n' | pacman -S multilib-devel > /dev/null 2>&1 && echo -e '\
 
 RUN useradd -m -d /home/test test
 RUN echo "test:test" | chpasswd
-RUN chown -R test:test /home/test
-RUN echo 'test ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+RUN echo 'test ALL=(ALL) ALL' >> /etc/sudoers
 ADD .bashrc /home/test/.bashrc
 ADD .vimrc /home/test/.vimrc
+ADD .gdbinit /home/test/.gdbinit
+RUN chown -R test:test /home/test
