@@ -2,7 +2,7 @@
 --- pacman2.conf	2015-07-09 00:04:24.015842195 +0900
 ***************
 *** 97,99 ****
---- 97,106 ----
+--- 97,103 ----
   #[custom]
   #SigLevel = Optional TrustAll
   #Server = file:///home/custompkgs
@@ -10,6 +10,3 @@
 + [archlinuxfr]
 + SigLevel = Never
 + Server = http://repo.archlinux.fr/$arch
-+ 
-+ [archassault]
-+ Server = https://repo.archassault.org/archassault/$repo/os/$arch
