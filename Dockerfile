@@ -9,7 +9,7 @@ RUN patch /etc/pacman.conf < /tmp/pacman.conf.patch && rm -f /tmp/pacman.conf.pa
 
 RUN pacman --noconfirm -Syu yaourt sudo vim base-devel man man-pages unzip openssh rsync python gdb git abs > /dev/null 2>&1
 RUN echo -e '\ny\ny\n' | pacman -S multilib-devel > /dev/null 2>&1 && echo -e '\r'
-RUN timeout 60 abs > /dev/null 2>&1 || true
+RUN timeout 5 abs > /dev/null 2>&1 || true
 RUN abs > /dev/null 2>&1
 
 RUN useradd -m -d /home/test test
