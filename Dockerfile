@@ -5,10 +5,10 @@ ADD mirrorlist /etc/pacman.d/mirrorlist
 RUN rm -f /etc/pacman.conf
 ADD pacman.conf /etc/pacman.conf
 
-RUN pacman --noconfirm -Syu yaourt sudo vim base-devel man man-pages unzip openssh rsync python gdb git abs
+RUN pacman --noconfirm -Syu yaourt vim base-devel man man-pages unzip openssh rsync python gdb git abs
 RUN echo -e '\ny\ny\n' | pacman -S multilib-devel && echo -e '\r'
-RUN timeout 5 abs || true
-RUN abs
+RUN timeout 5 abs > /dev/null 2>&1 || true
+RUN abs > /dev/null 2>&1
 
 RUN useradd -m -d /home/test test
 RUN echo "test:test" | chpasswd
