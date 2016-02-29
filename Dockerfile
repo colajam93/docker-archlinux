@@ -6,7 +6,20 @@ RUN rm -f /etc/pacman.d/mirrorlist
 COPY mirrorlist /etc/pacman.d/mirrorlist
 RUN rm -f /etc/pacman.conf
 COPY pacman.conf /etc/pacman.conf
-RUN pacman --noconfirm -Syu yaourt vim base-devel man man-pages unzip openssh rsync python gdb git abs
+RUN pacman --noconfirm -Syu \
+    abs \
+    base-devel \
+    gdb \
+    git \
+    man \
+    man-pages \
+    openssh \
+    python \
+    rsync \
+    unzip \
+    vim \
+    yaourt \
+        > /dev/null
 RUN echo -e '\ny\ny\n' | pacman -S multilib-devel && echo -e '\r'
 
 # abs
