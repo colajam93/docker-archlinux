@@ -6,7 +6,7 @@ RUN rm -f /etc/pacman.d/mirrorlist
 COPY mirrorlist /etc/pacman.d/mirrorlist
 RUN rm -f /etc/pacman.conf
 COPY pacman.conf /etc/pacman.conf
-RUN pacman --noconfirm -Syu \
+RUN pacman --noconfirm --needed -Syu \
     abs \
     base-devel \
     gdb \
