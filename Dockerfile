@@ -26,13 +26,6 @@ RUN echo -e '\ny\ny\n' | pacman -S multilib-devel && echo -e '\r'
 RUN timeout 5 abs > /dev/null 2>&1 || true
 RUN abs > /dev/null 2>&1
 
-# archstrike
-RUN pacman-key --init
-RUN dirmngr < /dev/null
-RUN pacman-key -r F32D93DA
-RUN pacman-key --lsign-key F32D93DA
-RUN pacman -Syu --noconfirm archstrike-keyring
-
 # user
 RUN useradd -m -d /home/test test
 RUN echo "test:test" | chpasswd
