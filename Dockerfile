@@ -2,9 +2,8 @@ FROM nfnty/arch-mini:latest
 MAINTAINER colajam93 <https://github.com/colajam93>
 
 # pacman
-RUN rm -f /etc/pacman.d/mirrorlist
+RUN rm -f /etc/pacman.d/mirrorlist /etc/pacman.conf
 COPY mirrorlist /etc/pacman.d/mirrorlist
-RUN rm -f /etc/pacman.conf
 COPY pacman.conf /etc/pacman.conf
 RUN pacman --noconfirm --needed -Syu \
     abs \
