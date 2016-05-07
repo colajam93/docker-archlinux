@@ -1,4 +1,4 @@
-My Dockerfile for testing / packaging environment
+Arch Linux Dockerfile for my testing / packaging environment (Daily Build)
 
 - abs
 - base-devel
@@ -6,7 +6,3 @@ My Dockerfile for testing / packaging environment
 - sudo (user: `test`, password: `test`)
 - yaourt
 - [ArchStrike](https://archstrike.org/) (`archstrike` tag)
-
-## License
-
-MIT
