@@ -25,11 +25,16 @@ RUN echo -e '\ny\ny\n' | pacman -S multilib-devel && echo -e '\r'
 RUN timeout 5 abs > /dev/null 2>&1 || true
 RUN abs > /dev/null 2>&1
 
+# dotfiles
+RUN git clone --depth 1 https://github.com/colajam93/dotfiles.git
+RUN bash /dotfiles/install.sh simple
+
 # user
-RUN useradd -m -d /home/test test
+RUN useradd -m test
 RUN echo "test:test" | chpasswd
 RUN echo 'test ALL=(ALL) ALL' >> /etc/sudoers
-COPY .bashrc /home/test/.bashrc
-COPY .vimrc /home/test/.vimrc
-COPY .gdbinit /home/test/.gdbinit
-RUN chown -R test:test /home/test
+USER test
+WORKDIR /home/test
+RUN bash /dotfiles/install.sh simple && bash /dotfiles/install.sh develop
+# bashrc overwrite workaround
+RUN mv -f .bashrc.dotnew .bashrc
