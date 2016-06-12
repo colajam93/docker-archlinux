@@ -2,7 +2,6 @@ FROM nfnty/arch-mini:latest
 MAINTAINER colajam93 <https://github.com/colajam93>
 
 # pacman
-RUN rm -f /etc/pacman.d/mirrorlist /etc/pacman.conf
 COPY mirrorlist /etc/pacman.d/mirrorlist
 COPY pacman.conf /etc/pacman.conf
 RUN pacman --noconfirm --needed -Syu \
@@ -22,12 +21,11 @@ RUN pacman --noconfirm --needed -Syu \
 RUN echo -e '\ny\ny\n' | pacman -S multilib-devel && echo -e '\r'
 
 # abs
-RUN timeout 5 abs > /dev/null 2>&1 || true
-RUN abs > /dev/null 2>&1
+RUN timeout 5 abs > /dev/null 2>&1 || abs > /dev/null 2>&1
 
 # dotfiles
-RUN git clone --depth 1 https://github.com/colajam93/dotfiles.git
-RUN bash /dotfiles/install.sh simple
+RUN git clone --depth 1 https://github.com/colajam93/dotfiles.git \
+    && bash /dotfiles/install.sh simple
 
 # user
 RUN useradd -m test
