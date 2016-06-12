@@ -5,4 +5,3 @@ Arch Linux Dockerfile for my testing / packaging environment (Daily Build)
 - multilib
 - sudo (user: `test`, password: `test`)
 - yaourt
-- [ArchStrike](https://archstrike.org/) (`archstrike` tag)
