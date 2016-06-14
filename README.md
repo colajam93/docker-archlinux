@@ -1,4 +1,4 @@
-Arch Linux Dockerfile for my testing / packaging environment (Daily Build)
+Arch Linux Dockerfile for my testing / packaging environment
 
 - abs
 - base-devel
