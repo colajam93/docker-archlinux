@@ -23,9 +23,10 @@ RUN echo -e '\ny\ny\n' | pacman -S multilib-devel && echo -e '\r'
 # abs
 RUN timeout 5 abs > /dev/null 2>&1 || abs > /dev/null 2>&1
 
+
 # dotfiles
 RUN git clone --depth 1 https://github.com/colajam93/dotfiles.git \
-    && bash /dotfiles/install.sh -f simple
+    && bash /dotfiles/install.sh -f -q simple && true
 
 # user
 RUN useradd -m test
@@ -33,4 +34,4 @@ RUN echo "test:test" | chpasswd
 RUN echo 'test ALL=(ALL) ALL' >> /etc/sudoers
 USER test
 WORKDIR /home/test
-RUN bash /dotfiles/install.sh -f simple && bash /dotfiles/install.sh -f develop
+RUN bash /dotfiles/install.sh -f -q simple && bash /dotfiles/install.sh -f -q develop
