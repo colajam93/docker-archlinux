@@ -25,7 +25,7 @@ RUN timeout 5 abs > /dev/null 2>&1 || abs > /dev/null 2>&1
 
 # dotfiles
 RUN git clone --depth 1 https://github.com/colajam93/dotfiles.git \
-    && bash /dotfiles/install.sh simple
+    && bash /dotfiles/install.sh -f simple
 
 # user
 RUN useradd -m test
@@ -33,6 +33,4 @@ RUN echo "test:test" | chpasswd
 RUN echo 'test ALL=(ALL) ALL' >> /etc/sudoers
 USER test
 WORKDIR /home/test
-RUN bash /dotfiles/install.sh simple && bash /dotfiles/install.sh develop
-# bashrc overwrite workaround
-RUN mv -f .bashrc.dotnew .bashrc
+RUN bash /dotfiles/install.sh -f simple && bash /dotfiles/install.sh -f develop
