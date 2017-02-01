@@ -12,6 +12,7 @@ RUN pacman --noconfirm --needed -Syu \
     man \
     man-pages \
     openssh \
+    procps-ng \
     python \
     rsync \
     unzip \
