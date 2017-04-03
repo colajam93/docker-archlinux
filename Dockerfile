@@ -1,9 +1,6 @@
-FROM nfnty/arch-mini:latest
+FROM archlinuxjp/archlinux:latest
 MAINTAINER colajam93 <https://github.com/colajam93>
 
-# pacman
-COPY mirrorlist /etc/pacman.d/mirrorlist
-COPY pacman.conf /etc/pacman.conf
 RUN pacman --noconfirm --needed -Syu \
     abs \
     base-devel \
