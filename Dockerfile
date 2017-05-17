@@ -2,7 +2,7 @@ FROM archlinuxjp/archlinux:latest
 MAINTAINER colajam93 <https://github.com/colajam93>
 
 RUN pacman --noconfirm --needed -Syu \
-        abs \
+        asp \
         base-devel \
         gdb \
         git \
@@ -12,7 +12,6 @@ RUN pacman --noconfirm --needed -Syu \
         rsync \
         unzip \
         vim &> /dev/null && \
-    timeout 5 abs &> /dev/null || abs &> /dev/null && \
     git clone --depth 1 https://github.com/colajam93/dotfiles.git &> /dev/null && \
     bash /dotfiles/install.sh -f -q simple &> /dev/null && \
     useradd -m test && \
