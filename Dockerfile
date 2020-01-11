@@ -1,4 +1,4 @@
-FROM archlinuxjp/archlinux:latest
+FROM archlinux/base:latest
 MAINTAINER colajam93 <https://github.com/colajam93>
 
 RUN pacman --noconfirm --needed -Syu \
